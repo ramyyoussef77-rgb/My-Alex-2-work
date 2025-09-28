@@ -1,0 +1,5 @@
+{
+  "name": "n8n Feasibility Matrix",
+  "description": "A visual dashboard displaying a feasibility assessment and implementation plan for various n8n workflow prompts.",
+  "requestFramePermissions": []
+}
