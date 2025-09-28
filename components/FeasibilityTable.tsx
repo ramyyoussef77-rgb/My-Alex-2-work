@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FeasibilityData } from '../types';
 
@@ -39,34 +38,32 @@ interface FeasibilityTableProps {
 }
 
 export const FeasibilityTable: React.FC<FeasibilityTableProps> = ({ data }) => {
-  const headers = ['Rank', 'Prompt', 'n8n Feasibility', 'Key Capabilities Available', 'Major Gaps', 'Recommended Approach'];
-  
   return (
     <div className="overflow-x-auto">
-      <div className="min-w-full bg-slate-900/70 border border-slate-700 rounded-lg">
-        {/* Header */}
-        <div className="grid grid-cols-12 gap-4 p-4 font-bold text-slate-300 border-b border-slate-700 bg-slate-800/50 rounded-t-lg">
-          <div className="col-span-1">Rank</div>
-          <div className="col-span-2">Prompt</div>
-          <div className="col-span-2">n8n Feasibility</div>
-          <div className="col-span-2">Capabilities</div>
-          <div className="col-span-2">Gaps</div>
-          <div className="col-span-3">Approach</div>
-        </div>
-        {/* Body */}
-        <div className="divide-y divide-slate-800">
-          {data.map((row, index) => (
-            <div key={index} className="grid grid-cols-12 gap-4 p-4 text-sm hover:bg-slate-700/30 transition-colors">
-              <div className="col-span-1 font-bold text-cyan-400 flex items-center">{row.rank}</div>
-              <div className="col-span-2 font-semibold text-slate-100 flex items-center">{row.prompt}</div>
-              <div className="col-span-2 flex items-center">{getFeasibilityBadge(row.feasibility)}</div>
-              <div className="col-span-2 text-slate-400 flex items-center">{row.capabilities}</div>
-              <div className="col-span-2 text-slate-400 flex items-center">{row.gaps}</div>
-              <div className="col-span-3 font-medium text-slate-200 flex items-center">{row.approach}</div>
-            </div>
+      <table className="min-w-full bg-slate-900/70 border border-slate-700 rounded-lg">
+        <thead className="bg-slate-800/50">
+          <tr className="border-b border-slate-700">
+            <th scope="col" className="p-4 font-bold text-slate-300 text-left w-1/12">Rank</th>
+            <th scope="col" className="p-4 font-bold text-slate-300 text-left w-2/12">Prompt</th>
+            <th scope="col" className="p-4 font-bold text-slate-300 text-left w-2/12">n8n Feasibility</th>
+            <th scope="col" className="p-4 font-bold text-slate-300 text-left w-2/12">Capabilities</th>
+            <th scope="col" className="p-4 font-bold text-slate-300 text-left w-2/12">Gaps</th>
+            <th scope="col" className="p-4 font-bold text-slate-300 text-left w-3/12">Approach</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-800">
+          {data.map((row) => (
+            <tr key={row.rank} className="text-sm hover:bg-slate-700/30 transition-colors">
+              <td className="p-4 font-bold text-cyan-400">{row.rank}</td>
+              <td className="p-4 font-semibold text-slate-100">{row.prompt}</td>
+              <td className="p-4">{getFeasibilityBadge(row.feasibility)}</td>
+              <td className="p-4 text-slate-400">{row.capabilities}</td>
+              <td className="p-4 text-slate-400">{row.gaps}</td>
+              <td className="p-4 font-medium text-slate-200">{row.approach}</td>
+            </tr>
           ))}
-        </div>
-      </div>
+        </tbody>
+      </table>
     </div>
   );
 };

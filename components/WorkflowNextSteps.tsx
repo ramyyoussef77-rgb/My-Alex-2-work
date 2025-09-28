@@ -6,12 +6,6 @@ interface WorkflowNextStepsProps {
 
 export const WorkflowNextSteps: React.FC<WorkflowNextStepsProps> = ({ onBuildCulturalLayer }) => {
     
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, callback?: () => void) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            callback?.();
-        }
-    };
-
     return (
         <section className="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-lg">
              <div className="flex items-center mb-4">
@@ -28,7 +22,7 @@ export const WorkflowNextSteps: React.FC<WorkflowNextStepsProps> = ({ onBuildCul
                     <button className="w-full text-left p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:bg-slate-700 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400">
                         <h3 className="font-semibold text-cyan-400">1. Extend this workflow with WhatsApp/SMS alerts</h3>
                     </button>
-                    <button onClick={onBuildCulturalLayer} onKeyDown={(e) => handleKeyDown(e, onBuildCulturalLayer)} className="w-full text-left p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:bg-slate-700 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400">
+                    <button onClick={onBuildCulturalLayer} className="w-full text-left p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:bg-slate-700 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400">
                         <h3 className="font-semibold text-cyan-400">2. Build the Cultural Translation Layer (Prompt #5) next</h3>
                     </button>
                     <button className="w-full text-left p-4 bg-slate-700/50 rounded-lg border border-slate-600 hover:bg-slate-700 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400">

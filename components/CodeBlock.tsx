@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const CopyIcon = () => (
@@ -26,6 +25,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ code }) => {
     navigator.clipboard.writeText(code).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
     });
   };
 

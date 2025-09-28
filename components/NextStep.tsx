@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface NextStepProps {
@@ -14,11 +13,11 @@ export const NextStep: React.FC<NextStepProps> = ({ onProceed }) => {
             <p className="text-blue-100 mb-6 text-lg">Shall I now proceed with the workflow construction?</p>
             
             <div className="max-w-3xl mx-auto space-y-4 text-left bg-black/20 p-6 rounded-lg">
-                <div className="p-4 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all cursor-pointer">
+                <div className="p-4 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all">
                     <h3 className="font-semibold text-white">1. Build the complete n8n workflow for Prompt #6</h3>
                     <p className="text-sm text-blue-100 mt-1">Includes Facebook monitoring, weather integration, OpenAI prediction, and calendar auto-creation.</p>
                 </div>
-                <div className="p-4 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all cursor-pointer">
+                <div className="p-4 bg-white/10 rounded-lg border border-white/20 hover:bg-white/20 transition-all">
                     <h3 className="font-semibold text-white">2. Provide architecture diagrams</h3>
                     <p className="text-sm text-blue-100 mt-1">Illustrate how n8n integrates with your React Native app for all 7 prompts.</p>
                 </div>
