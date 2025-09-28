@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Section } from './Section';
 import { CodeBlock } from './CodeBlock';
+import { ProductionHardeningNextSteps } from './ProductionHardeningNextSteps';
 
 const historicalApiSpec = `{
   "site": "Pompey's Pillar",
@@ -636,7 +636,12 @@ const finalBundle = `{
 }`;
 
 
-export const CompleteSuiteView: React.FC = () => (
+interface CompleteSuiteViewProps {
+    onBuildHardening: () => void;
+}
+
+
+export const CompleteSuiteView: React.FC<CompleteSuiteViewProps> = ({ onBuildHardening }) => (
     <div className="min-h-screen bg-slate-900 font-sans p-4 sm:p-6 lg:p-8">
       <main className="max-w-7xl mx-auto space-y-12">
         <header className="text-center py-4">
@@ -708,11 +713,7 @@ export const CompleteSuiteView: React.FC = () => (
             <CodeBlock code={finalBundle} />
         </Section>
         
-        <section className="bg-gradient-to-r from-green-500 to-teal-600 rounded-xl p-8 text-center shadow-2xl">
-            <h2 className="text-4xl font-bold text-white mb-2">🎉 You’re Done!</h2>
-            <p className="text-teal-100 text-lg">Your **My Alex App** now has a robust, scalable, and culturally intelligent backend powered by n8n!</p>
-            <p className="text-teal-200 text-sm mt-4"><em>As the original template #2414 says: "What would’ve taken 3 days to code from scratch? Done in 2 hours." 🚀</em></p>
-        </section>
+        <ProductionHardeningNextSteps onProceed={onBuildHardening} />
 
       </main>
       <footer className="text-center py-8 mt-12 text-slate-500">

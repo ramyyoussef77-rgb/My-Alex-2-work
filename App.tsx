@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Section } from './components/Section';
 import { CodeBlock } from './components/CodeBlock';
@@ -11,6 +10,10 @@ import { CulturalTranslationBuilder } from './components/CulturalTranslationBuil
 import { OfflineSyncBuilder } from './components/OfflineSyncBuilder';
 import { FinalSummary } from './components/FinalSummary';
 import { CompleteSuiteView } from './components/CompleteSuiteView';
+import { ProductionHardeningView } from './components/ProductionHardeningView';
+import { DeploymentGuideView } from './components/DeploymentGuideView';
+import { FinalArchitectureView } from './components/FinalArchitectureView';
+import { UIDesignView } from './components/UIDesignView';
 
 
 const discoveryQueries = [
@@ -130,7 +133,15 @@ export default function App() {
     case 'finalSummary':
         return <FinalSummary onFinalizeSuite={() => setView('completeSuite')} />;
     case 'completeSuite':
-        return <CompleteSuiteView />;
+        return <CompleteSuiteView onBuildHardening={() => setView('productionHardening')} />;
+    case 'productionHardening':
+        return <ProductionHardeningView onDeploy={() => setView('deploymentGuide')} />;
+    case 'deploymentGuide':
+        return <DeploymentGuideView onProceedToArchitecture={() => setView('finalArchitecture')} />;
+    case 'finalArchitecture':
+        return <FinalArchitectureView onProceedToUIDesign={() => setView('uiDesign')} />;
+    case 'uiDesign':
+        return <UIDesignView />;
     case 'feasibility':
     default:
         return <FeasibilityView onProceed={() => setView('eventPrediction')} />;
